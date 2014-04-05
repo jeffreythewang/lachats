@@ -101,11 +101,13 @@ text-align: left;'></div>
 
         var username = "";
         var courseName = "";
+        var courseNamePass = "";
     
     $( document ).ready(function(){
             var urllist = document.URL.split('=');
             var userID = urllist[1].split('?')[0];
             courseName = decompress(urllist[2]);
+            courseNamePass = urllist[2];
             username = getUsername(userID);
             console.log(userID);
             console.log(courseName);
@@ -113,12 +115,15 @@ text-align: left;'></div>
         });
     
     function mainRedirect() {
+        var urllist = document.URL.split('=');
+        var userID = urllist[1].split('?')[0];
+        username = getUsername(userID);
         window.location = '/main.html?id=' + username; 
         }
 
     // Get a reference to the root of the chat data.
     var fbRef = new Firebase('https://la-chats.firebaseio.com/');
-    var messagesRef = fbRef.child('courses').child(courseName).child('chats');
+    var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
     
   // When the user presses enter on the message input, write the message to firebase.
   $('#messageInput').keypress(function (e) {
