@@ -19,4 +19,20 @@
     <script src="js/vendor/jquery.js"></script>
     <script type='text/javascript' src="js/typeahead.bundle.js"></script>
     <script src="js/search.js"></script>
+    <script>
+        function submitCourse() {
+            var courseID = document.URL.split('=')[1];
+            var username = getUsername(courseID);
+            console.log(username);
+        }
+
+        function getUsername(userid) {
+          var fbRef = new Firebase(fburl);
+          var usernameRef = fbRef.child('users').child(userid).child('name');
+          usernameRef.on('value', function(snapshot) {
+            name = snapshot.val());
+            return name;
+          });
+        }
+    </script>
 </html>
