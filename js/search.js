@@ -11235,5 +11235,6 @@ $('#search .typeahead').typeahead({
   name: 'classes',
   displayKey: 'value',
   limit: 10,
+  limitTo: 10,
   source: substringMatcher(classes)
 });

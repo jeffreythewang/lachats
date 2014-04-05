@@ -38,7 +38,7 @@ p {
   width: 600px;
   margin-top: 12px;
   padding: 8px 0;
-  background-color: #cfe9f5;
+  background-color: #b0ffd5;
     -webkit-border-radius: 8px;
      -moz-border-radius: 8px;
           border-radius: 8px;
@@ -55,7 +55,7 @@ p {
 
 .tt-suggestion.tt-cursor {
   color: #fff;
-  background-color: #1c77f2;
+  background-color: #02c76c;
 
 }
 

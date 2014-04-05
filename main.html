@@ -26,11 +26,11 @@
         </ul>
       </section>
     </nav>
-    <br><br><br>
-    <h1>Search for classes</h1>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!--    <h1>What classes are you taking?</h1>-->
     <div class="row">
             <div id="search">
-                <input class="typeahead" type="text" placeholder="UCLA Classes">
+                <input class="typeahead" id="classInput" type="text" placeholder="What classes are you taking?">
 <!--                <button id="submit-course" class="medium secondary button" onclick="submitCourse();">+</button>-->
             </div>
     </div>
@@ -40,18 +40,31 @@
     <script src="js/vendor/jquery.js"></script>
     <script type='text/javascript' src="js/typeahead.bundle.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/index.js"></script>
     <script>
+        var username = 'Undefined';
         $( document ).ready(function(){
-            var courseID = document.URL.split('=')[1];
-            console.log(courseID);
-            getUsername(courseID);
+            var userID = document.URL.split('=')[1];
+            console.log(userID);
+            username = getUsername(userID);
         });
+        
+    // When the user presses enter on the message input, write the message to firebase.
+      $('#classInput').keypress(function (e) {
+        if (e.keyCode == 13) {
+          var classes = $('#classInput').val();
+          var userID = document.URL.split('=')[1];
+          addClass(userID,username,classes);
+          console.log('added class');
+        }
+      });
+        
         var fburl = 'https://la-chats.firebaseio.com/';
 
         function submitCourse() {
-            var courseID = document.URL.split('=')[1];
-            console.log(courseID);
-            var username = getUsername(courseID);
+            var userID = document.URL.split('=')[1];
+            console.log(userID);
+            var username = getUsername(userID);
         }
 
         function getUsername(userid) {
