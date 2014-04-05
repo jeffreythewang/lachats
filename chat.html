@@ -93,6 +93,7 @@ text-align: left;'></div>
           usernameRef.on('value', function(snapshot) {
             var name = snapshot.val();
             console.log(name);
+            debugger;
             document.getElementById('name').innerHTML="Hi " + name + "!";
 
             return name;
