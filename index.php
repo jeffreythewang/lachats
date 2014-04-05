@@ -24,6 +24,7 @@
     
     <script src="js/vendor/modernizr.js"></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/index.js"></script>
@@ -53,13 +54,13 @@
             FB.api('/me', function (response) {
               name = response.name;
               console.log(name);
-              var fburl = 'https://la-chats.firebaseio.com/';
-              var fbRef = new Firebase(fburl);
-              var userRef = fbRef.child('users').child(user_id);
+              //var fburl = 'https://la-chats.firebaseio.com/';
+              var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + user_id);
+              //var userRef = fbRef.child('users').child(user_id);
 
-              userRef.child('name').set(name);
+              fbRef.child('name').set(name);
               console.log(name);
-              userRef.child('fbtoken').set(access_token);
+              fbRef.child('fbtoken').set(access_token);
               console.log(access_token);
             //redirects to our main.php page
             window.location = '/main.html' + '?id=' + user_id;
@@ -86,13 +87,13 @@
         FB.api('/me', function (response) {
           name = response.name;
           console.log(name);
-          var fburl = 'https://la-chats.firebaseio.com/';
-          var fbRef = new Firebase(fburl);
-          var userRef = fbRef.child('users').child(user_id);
+          //var fburl = 'https://la-chats.firebaseio.com/';
+              var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + user_id);
+              //var userRef = fbRef.child('users').child(user_id);
 
-          userRef.child('name').set(name);
+          fbRef.child('name').set(name);
           console.log(name);
-          userRef.child('fbtoken').set(access_token);
+          fbRef.child('fbtoken').set(access_token);
           console.log(access_token);
           //redirects to our main.php page
           window.location = '/main.html' + '?id=' + user_id;
