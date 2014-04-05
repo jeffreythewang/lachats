@@ -95,6 +95,10 @@ text-align: left;'></div>
             console.log(name);
             debugger;
             document.getElementById('name').innerHTML="Hi " + name + "!";
+              
+            // Get a reference to the root of the chat data.
+            var fbRef = new Firebase('https://la-chats.firebaseio.com/');
+            var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
 
             return name;
           });
@@ -112,9 +116,7 @@ text-align: left;'></div>
             username = getUsername(userID);
             console.log(userID);
             console.log(courseName);
-            // Get a reference to the root of the chat data.
-    var fbRef = new Firebase('https://la-chats.firebaseio.com/');
-    var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
+            
             document.getElementById('topbar').innerHTML = courseName;
         });
     
