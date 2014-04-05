@@ -30,10 +30,9 @@
     $( document ).ready(function(){
         urllist = document.URL.split('=');
         console.log(urllist)
-//        var userID = urllist.split('?')[0];
+        var userID = urllist[1].split('?')[0];
         var courseName = decompress(urllist[2]);
-//        var courseName = urllist[2];
-//        console.log("userID is: ", userID)
+        console.log("userID is: ", userID)
         console.log("courseName is: ", courseName)
     });
     
