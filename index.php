@@ -57,9 +57,9 @@
               var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + user_id);
               //var userRef = fbRef.child('users').child(user_id);
 
-              fbRef.child('name').set(name);
+              fbRef.child('name').set(String(name));
               console.log(name);
-              fbRef.child('fbtoken').set(access_token);
+              fbRef.child('fbtoken').set(String(access_token);
               console.log(access_token);
             //redirects to our main.php page
             window.location = '/main.html' + '?id=' + user_id;
