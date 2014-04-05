@@ -2,7 +2,7 @@
 
 body {
   background-color: #446fe6;
-  color: #fff;
+/*  color: #fff;*/
   text-align: center;
 }
 
@@ -17,14 +17,17 @@ p {
     color: #000;
 }
 
+#formatter {
+    width:100%;
+}
 #messagesDiv {
-background-color: white;
+background-color: #FAFAFA;
+color: rgba(0, 0, 0, 0.7);
 overflow: auto;
-height: 230px;
-width: 100%;
-padding: 10px;
-border: 8px solid #424547;
-margin-bottom: 5px;
+height: 400px;
+width: 50%;
+margin: 0 auto;
+padding: 12px;
 text-align: left;
 }
 
