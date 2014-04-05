@@ -9,8 +9,6 @@
       
     <script src="js/vendor/modernizr.js"></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
-    <script type='text/javascript' src='https://cdn.firebase.com/js/simple-login/1.3.2/firebase-simple-login.js'></script>
-    <script type='text/javascript' src='/js/index.js'></script>
       
   </head>
   <body>
@@ -21,9 +19,9 @@
       <div id="content-login">
         <div id="fb-root">
           <h2>Form facebook groups with people in your classes!</h2>
-            <br><br>
-        </div>  
-         <button id="login" class="medium secondary button" onclick="fbLogin();">Login with Facebook</button>
+          <br><br>
+          <button id="login" class="medium secondary button" onclick="fbLogin();">Login with Facebook</button>
+        </div> 
       </div>
     </div>
   </div>
@@ -57,9 +55,21 @@
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
+
+            var fburl = 'https://la-chats.firebaseio.com/';
+            var fbRef = new Firebase(fburl);
+            var userRef = fbRef.child('users').child(user_id);
+
+            userRef.child('name').set(name);
+            userRef.child('fbtoken').set(access_token);
+            //$('#content-login').fadeOut(function() {
+            //  $('#content-none').fadeIn();
+            //});  
+
             /*$('#content-login').fadeOut(function() {
               $('#content-none').fadeIn();
             });*/
+
           } else {
             console.log('cancelled login');
           }
@@ -70,6 +80,12 @@
         FB.api('/me', function (response) {
           name = response.first_name;
         });
+        var fburl = 'https://la-chats.firebaseio.com/';
+        var fbRef = new Firebase(fburl);
+        var userRef = fbRef.child('users').child(user_id);
+
+        userRef.child('name').set(name);
+        userRef.child('fbtoken').set(access_token);
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
         /*$('#content-login').fadeOut(function() {
