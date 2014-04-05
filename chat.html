@@ -131,7 +131,7 @@ text-align: left;'></div>
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
 //      var name = $('#nameInput').val();
-      var name = 'Kenny Shi'; // for demo/design purposes
+      var name = username; // for demo/design purposes
       var text = $('#messageInput').val();
       messagesRef.push({name:name, text:text});
       $('#messageInput').val('');
