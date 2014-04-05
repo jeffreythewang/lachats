@@ -7,8 +7,13 @@
     <script type='text/javascript' src="/js/search.js"></script>
 </head>
 <body>
-    <div id="search">
+    <div id="searching">
       <input class="typeahead" type="text" placeholder="Classes at UCLA">
     </div>
 </body>
+
+<script>  
+ var subjects = ['PHP', 'MySQL', 'SQL', 'PostgreSQL', 'HTML', 'CSS', 'HTML5', 'CSS3', 'JSON'];   
+$('#searching').typeahead({source: subjects})  
+</script>  
 </html>
