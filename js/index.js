@@ -88,14 +88,10 @@ function fbLogin() {
 }
 */
 
-function addClass(userid, username, course) {
+function addClass(userid, course) {
 	var fbRef = new Firebase(fburl);
-	var userRef = fbRef.child('users').child(userid).child('courses').child(course['id']);
-	userRef.child('coursename').set(course['name']);
-	var courseRef = chatRef.child(course['id'])
-  courseRef.child('coursename').set(course['name'];
-  var dataRef = courseRef.child('users').child(userid);
-	dataRef.child('name').set(username);
+	var userRef = fbRef.child('users').child(userid).child('courses');
+	userRef.child(course).set('');
 }
 
 function getUsername(userid) {
@@ -110,7 +106,6 @@ function getUsername(userid) {
 function getClasses(userid) {
   var fbRef = new Firebase(fburl);
   var userRef = fbRef.child('users').child(userid).child('courses');
-<<<<<<< HEAD
   var classDict = [];
   listRef.on('child_added', function(snapshot) {
     var classData = snapshot.val();
@@ -127,6 +122,3 @@ function getClassmates(courseid) {
     classmateDict.push(classmateData.name);
   });
 }
-=======
-}
->>>>>>> 7289f26d0437efa9ed20a72272824e769070e825
