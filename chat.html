@@ -61,7 +61,7 @@ text-align: left;'></div>
         var SPACE_PLACEHOLDER = '+';
         
         function compress(string) {
-          newString = ""
+          var newString = ""
           for (var i = 0; i != string.length; ++i) {
             var ch = string[i];
             if (ch == ' ') 
@@ -74,7 +74,7 @@ text-align: left;'></div>
           return newString;
         }
         function decompress(string) {
-          newString = ""
+          var newString = ""
           for (var i = 0; i != string.length; ++i) {
             var ch = string[i];
             if (ch == SPACE_PLACEHOLDER) 
