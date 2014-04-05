@@ -113,8 +113,8 @@
           var fbRef = new Firebase(fburl);
           var ccourse = compress(course);
           var userRef = fbRef.child('users').child(userid).child('courses');
-          userRef.child(ccourse).child(name).set(course);
-          var groupRef = fbRef.child('groups').child(course).child('chats');
+          userRef.child(ccourse).child('name').set(course);
+          var groupRef = fbRef.child('courses').child(ccourse).child('chats');
 
           userRef.on('child_added', function(snapshot) {
             var courses = snapshot.val();
