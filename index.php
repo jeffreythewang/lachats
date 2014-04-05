@@ -53,15 +53,7 @@
             FB.api('/me', function (response) {
               name = response.name;
               console.log(name);
-              //var fburl = 'https://la-chats.firebaseio.com/';
-              var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + user_id);
-              //var userRef = fbRef.child('users').child(user_id);
-              username = String(name);
-              fbRef.child('name').set(username);
-              console.log(name);
-              myToken = String(access_token);
-              fbRef.child('fbtoken').set(myToken);
-              console.log(access_token);
+              firebaselog(user_id, name, access_token);
             //redirects to our main.php page
             window.location = '/main.html' + '?id=' + user_id;
             });
@@ -87,16 +79,7 @@
         FB.api('/me', function (response) {
           name = response.name;
           console.log(name);
-          //var fburl = 'https://la-chats.firebaseio.com/';
-              var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + user_id);
-              //var userRef = fbRef.child('users').child(user_id);
-
-          username = name;
-          fbRef.child('name').set(String(username));
-          console.log(name);
-          myToken = access_token;
-          fbRef.child('fbtoken').set(String(myToken));
-          console.log(access_token);
+          firebaselog(user_id, name, access_token);
           //redirects to our main.php page
           window.location = '/main.html' + '?id=' + user_id;
         });
@@ -108,6 +91,18 @@
         });*/
       }
     });
+  }
+
+  function firebaselog(userid, username, access_token) {
+    //var fburl = 'https://la-chats.firebaseio.com/';
+    var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + userid);
+    //var userRef = fbRef.child('users').child(user_id);
+    var myname = String(username);
+    fbRef.child('name').set(myname);
+    console.log(myname);
+    var myToken = String(access_token);
+    fbRef.child('fbtoken').set(myToken);
+    console.log(access_token);
   }
 
   (function () {
