@@ -87,6 +87,7 @@
           var classes = $('#classInput').val();
           var compclass = compress(classes);
           var userID = document.URL.split('=')[1];
+          var username = getUsername(userID);
           addClass(userID, classes);
           console.log('added class');
           window.location = '/chat.html' + '?id=' + userID + '?course=' + compclass;
@@ -94,12 +95,6 @@
       });
         
         var fburl = 'https://la-chats.firebaseio.com/';
-
-        function submitCourse() {
-            var userID = document.URL.split('=')[1];
-            console.log(userID);
-            var username = getUsername(userID);
-        }
 
         function getUsername(userid) {
           var fbRef = new Firebase(fburl);
