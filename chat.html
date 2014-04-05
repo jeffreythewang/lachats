@@ -3,14 +3,38 @@
 <head>
   <script src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  <link rel="stylesheet" href="css/foundation.css"/>
   <link rel="stylesheet" type="text/css" href="/css/typeahead.css">
 </head>
 <body>
+<nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">LA Chats!</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li><a href="#">Options</a></li>
+          <li><a href="#">Logout</a></li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+          <li><a href="#" id="name"></a></li>
+        </ul>
+      </section>
+    </nav>
+    <br><br><br><br>
     <div id='formatter'>
-    <div id='messagesDiv'></div>
-        <input type='text' id='nameInput' placeholder='Name'>
-        <input type='text' id='messageInput' placeholder='Message...'>
-    </div>
+<div id='topbar'></div>
+<div id='messagesDiv'></div>
+<input type='text' class="messages" id='messageInput' placeholder='Message...'>
+</div>
+    
 <script>
 
   // Get a reference to the root of the chat data.
@@ -19,7 +43,8 @@
   // When the user presses enter on the message input, write the message to firebase.
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
-      var name = $('#nameInput').val();
+//      var name = $('#nameInput').val();
+      var name = "Kenny Shi" // for demo/design purposes
       var text = $('#messageInput').val();
       messagesRef.push({name:name, text:text});
       $('#messageInput').val('');

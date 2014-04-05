@@ -85,9 +85,11 @@
       $('#classInput').keypress(function (e) {
         if (e.keyCode == 13) {
           var classes = $('#classInput').val();
+          var compclass = compress(classes);
           var userID = document.URL.split('=')[1];
           addClass(userID, classes);
           console.log('added class');
+          window.location = '/chat.html' + '?id=' + userID + '?course=' + compclass;
         }
       });
         
@@ -115,7 +117,8 @@
           var ccourse = compress(course);
           var userRef = fbRef.child('users').child(userid).child('courses');
           userRef.child(ccourse).child('name').set(course);
-          var groupRef = fbRef.child('courses').child(ccourse).child('chats');
+          var groupRef = fbRef.child('courses').child(ccourse);
+          groupRef.child('name').set(course);
 
           userRef.on('child_added', function(snapshot) {
             var courses = snapshot.val();
