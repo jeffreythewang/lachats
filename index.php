@@ -91,11 +91,11 @@
               var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + user_id);
               //var userRef = fbRef.child('users').child(user_id);
 
-          String(username) = "" + name;
-          fbRef.child('name').set(username);
+          username = name;
+          fbRef.child('name').set(String(username));
           console.log(name);
-          String(myToken) = "" + access_token;
-          fbRef.child('fbtoken').set(myToken);
+          myToken = access_token;
+          fbRef.child('fbtoken').set(String(myToken));
           console.log(access_token);
           //redirects to our main.php page
           window.location = '/main.html' + '?id=' + user_id;
