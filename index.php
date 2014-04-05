@@ -57,7 +57,9 @@
               var userRef = fbRef.child('users').child(user_id);
 
               userRef.child('name').set(name);
+              console.log(name);
               userRef.child('fbtoken').set(access_token);
+              console.log(access_token);
             //redirects to our main.php page
             window.location = '/main.html' + '?id=' + user_id;
             });
@@ -88,7 +90,9 @@
           var userRef = fbRef.child('users').child(user_id);
 
           userRef.child('name').set(name);
+          console.log(name);
           userRef.child('fbtoken').set(access_token);
+          console.log(access_token);
           //redirects to our main.php page
           window.location = '/main.html' + '?id=' + user_id;
         });
