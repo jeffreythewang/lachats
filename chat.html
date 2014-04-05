@@ -11,10 +11,8 @@
 <script>
 
     $( document ).ready(function(){
-//        alert("ready")
-        url = document.URL;
-        console.log("url:")
-        console.log(url);
+        urlstr = document.URL.split('=');
+        console.log(urlstr);
     });
     
   // Get a reference to the root of the chat data.
