@@ -59,7 +59,7 @@ window.fbAsyncInit = function() {
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
         //redirects to our main.php page
-        window.location = '/main.php';
+        window.location = '/main.html' + '?ID=' + response.name;
     });
   }
 
