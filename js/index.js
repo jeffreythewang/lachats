@@ -58,6 +58,7 @@ window.fbAsyncInit = function() {
     });
   }
 
+/*
 function fbLogin() {
 
 	var fbRef = new Firebase(fburl);
@@ -82,6 +83,7 @@ function fbLogin() {
 
 	auth.login('facebook');
 }
+*/
 
 function addClass(classes) {
 
