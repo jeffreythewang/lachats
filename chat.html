@@ -114,6 +114,25 @@ text-align: left;'></div>
             // Get a reference to the root of the chat data.
             var fbRef = new Firebase('https://la-chats.firebaseio.com/');
             var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
+
+            // When the user presses enter on the message input, write the message to firebase.
+            $('#messageInput').keypress(function (e) {
+              if (e.keyCode == 13) {
+          //      var name = $('#nameInput').val();
+                var name = username; // for demo/design purposes
+                var text = $('#messageInput').val();
+                messagesRef.push({name:name, text:text});
+                $('#messageInput').val('');
+              }
+            });
+
+            // Add a callback that is triggered for each chat message.
+            messagesRef.limit(10).on('child_added', function (snapshot) {
+              var message = snapshot.val();
+              $('<div/>').text(message.text).prepend($('<em/>')
+                .text(message.name+': ')).appendTo($('#messagesDiv'));
+              $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+            });
             
             document.getElementById('topbar').innerHTML = courseName;
         });
@@ -125,24 +144,8 @@ text-align: left;'></div>
         window.location = '/main.html?id=' + username; 
         }
     
-  // When the user presses enter on the message input, write the message to firebase.
-  $('#messageInput').keypress(function (e) {
-    if (e.keyCode == 13) {
-//      var name = $('#nameInput').val();
-      var name = username; // for demo/design purposes
-      var text = $('#messageInput').val();
-      messagesRef.push({name:name, text:text});
-      $('#messageInput').val('');
-    }
-  });
+  
 
-  // Add a callback that is triggered for each chat message.
-  messagesRef.limit(10).on('child_added', function (snapshot) {
-    var message = snapshot.val();
-    $('<div/>').text(message.text).prepend($('<em/>')
-      .text(message.name+': ')).appendTo($('#messagesDiv'));
-    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-  });
 </script>
 
 </body>
