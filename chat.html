@@ -92,6 +92,7 @@ text-align: left;'></div>
             var name = snapshot.val();
             console.log(name);
             var text = $('#messageInput').val();
+            console.log('This is the value of ' + courseNamePass);
             var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
             messagesRef.push({name:name, text:text});
             $('#messageInput').val('');
