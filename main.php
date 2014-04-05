@@ -1,19 +1,20 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/styles.css">
     <script src="/js/vendor/modernizr.js"></script>
     <script src="/js/vendor/jquery.js"></script>
     <script type='text/javascript' src="/js/typeahead.bundle.js"></script>
-    <script type='text/javascript' src="/js/search.js"></script>
 </head>
 <body>
-    <div id="searching">
+    <div id="search">
       <input class="typeahead" type="text" placeholder="Classes at UCLA">
     </div>
 </body>
 
 <script>  
  var subjects = ['PHP', 'MySQL', 'SQL', 'PostgreSQL', 'HTML', 'CSS', 'HTML5', 'CSS3', 'JSON'];   
-$('#searching').typeahead({source: subjects})  
+$('#search').typeahead({source: subjects})  
 </script>  
 </html>
