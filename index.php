@@ -50,8 +50,9 @@
           if (response.authResponse) {
             access_token = response.authResponse.accessToken;
             user_id = response.authResponse.userID;
+            var name;
             FB.api('/me', function (response) {
-              name = response.first_name;
+              name = response.name;
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
