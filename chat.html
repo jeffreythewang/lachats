@@ -107,8 +107,8 @@ text-align: left;'></div>
     
         $( document ).ready(function(){
             var urllist = document.URL.split('=');
-            var userID = urllist[1].split('?')[0];
-            courseName = decompress(urllist[2]);
+            userID = urllist[1].split('?')[0];
+            var courseName = decompress(urllist[2]);
             courseNamePass = urllist[2];
             console.log(userID);
             console.log(courseName);
