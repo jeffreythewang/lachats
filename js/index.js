@@ -1,5 +1,5 @@
 var myUser;
-//var fburl = 'https://la-chats.firebaseio.com/';
+var fburl = 'https://la-chats.firebaseio.com/';
 
 window.fbAsyncInit = function() {
   FB.init({
