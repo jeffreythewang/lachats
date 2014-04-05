@@ -89,13 +89,8 @@ text-align: left;'></div>
     
         var messagesRef = null;
 
-<<<<<<< HEAD
         function getUsername(userid) {
-          var fbRef = new Firebase('https://la-chats.firebaseio.com/');
-=======
-        function getName(userid) {
           var fbRef = new Firebase(fburl);
->>>>>>> 443f4fd37fb3c584794654af4e4c6c6803916666
           var usernameRef = fbRef.child('users').child(userid).child('name');
           usernameRef.on('value', function(snapshot) {
             var name = snapshot.val();
