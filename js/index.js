@@ -90,15 +90,26 @@ function fbLogin() {
 }
 */
 
-function addClass(classes) {
-
+function addClass(userid, username, course) {
 	var fbRef = new Firebase(fburl);
-	var classLen = classes.length;
-	for (var i = 0; i < classLen; i++) {
-		// classes[i] should be a dict containting the class data
-		var userRef = fbRef.child('users').child(user.id).child(classes).child(classes[i]);
-		userRef.child('classid').set(classes[i]);
-		var classRef = chatRef.child(classes[i]).child(myUser.id);
-		classRef.child('name').set(myUser.displayName);
-	}
+	var userRef = fbRef.child('users').child(userid).child('courses').child(course['id']);
+	userRef.child('classname').set(course['name']);
+	var courseRef = chatRef.child(course['id'])
+  courseRef.child('coursename').set(course['name'];
+  var dataRef = courseRef.child('users').child(userid);
+	dataRef.child('name').set(username);
+}
+
+function getUsername(userid) {
+  var fbRef = new Firebase(fburl);
+  var usernameRef = fbRef.child('users').child(userid).child('name');
+  usernameRef.on('value', function(snapshot) {
+    name = snapshot.val());
+    return name;
+  });
+}
+
+function getClasses(userid) {
+  var fbRef = new Firebase(fburl);
+  var userRef = fbRef.child('users').child(userid).child('courses');
 }
