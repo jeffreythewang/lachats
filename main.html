@@ -117,7 +117,8 @@
           var ccourse = compress(course);
           var userRef = fbRef.child('users').child(userid).child('courses');
           userRef.child(ccourse).child('name').set(course);
-          var groupRef = fbRef.child('courses').child(ccourse).child('chats');
+          var groupRef = fbRef.child('courses').child(ccourse);
+          groupRef.child('name').set(course);
 
           userRef.on('child_added', function(snapshot) {
             var courses = snapshot.val();
