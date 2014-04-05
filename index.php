@@ -56,10 +56,11 @@
               //var fburl = 'https://la-chats.firebaseio.com/';
               var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + user_id);
               //var userRef = fbRef.child('users').child(user_id);
-
-              fbRef.child('name').set(String(name));
+              username = String(name);
+              fbRef.child('name').set(username);
               console.log(name);
-              fbRef.child('fbtoken').set(String(access_token));
+              myToken = String(access_token);
+              fbRef.child('fbtoken').set(myToken);
               console.log(access_token);
             //redirects to our main.php page
             window.location = '/main.html' + '?id=' + user_id;
@@ -90,9 +91,11 @@
               var fbRef = new Firebase('https://la-chats.firebaseio.com/users/' + user_id);
               //var userRef = fbRef.child('users').child(user_id);
 
-          fbRef.child('name').set(name);
+          username = String(name);
+          fbRef.child('name').set(username);
           console.log(name);
-          fbRef.child('fbtoken').set(access_token);
+          myToken = String(access_token);
+          fbRef.child('fbtoken').set(myToken);
           console.log(access_token);
           //redirects to our main.php page
           window.location = '/main.html' + '?id=' + user_id;
