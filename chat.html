@@ -91,7 +91,7 @@ text-align: left;'></div>
           var fbRef = new Firebase(fburl);
           var usernameRef = fbRef.child('users').child(userid).child('name');
           usernameRef.on('value', function(snapshot) {
-            name = snapshot.val();
+            var name = snapshot.val();
             console.log(name);
             document.getElementById('name').innerHTML="Hi " + name + "!";
 
