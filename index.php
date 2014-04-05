@@ -50,7 +50,7 @@
           if (response.authResponse) {
             access_token = response.authResponse.accessToken;
             user_id = response.authResponse.userID;
-            var name;
+            name = response.name;
             FB.api('/me', function (response) {
               name = response.name;
             });
