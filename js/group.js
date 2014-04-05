@@ -5,7 +5,7 @@ FB.api(
     {
         "object": {
             "name": "Test Group Name",
-            "privacy": secret
+            "privacy": closed
         }
     },
     function (response) {
