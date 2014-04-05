@@ -46,6 +46,7 @@
 
   function fbLogin() {
     FB.getLoginStatus(function (response) {
+        console.log('Attempting to login');
       if (response.status !== 'connected') {
         FB.login(function (response) {
           if (response.authResponse) {
@@ -56,9 +57,9 @@
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
-            $('#content-login').fadeOut(function() {
+            /*$('#content-login').fadeOut(function() {
               $('#content-none').fadeIn();
-            });  
+            });*/
           } else {
             console.log('cancelled login');
           }
@@ -71,9 +72,9 @@
         });
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
-        $('#content-login').fadeOut(function() {
+        /*$('#content-login').fadeOut(function() {
           $('#content-none').fadeIn();
-        });
+        });*/
       }
     });
   }
