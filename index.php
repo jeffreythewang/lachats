@@ -6,10 +6,6 @@
     <title>LAChats | Welcome!</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/styles.css">
-      
-    <script src="js/vendor/modernizr.js"></script>
-    <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
-      
   </head>
   <body>
       <div id="wrapper">
@@ -20,12 +16,14 @@
         <div id="fb-root">
           <h2>Form facebook groups with people in your classes!</h2>
           <br><br>
-          <button id="login" class="medium secondary button" onclick="fbLogin();">Login with Facebook</button>
         </div> 
+        <button id="login" class="medium secondary button" onclick="fbLogin();">Login with Facebook</button>
       </div>
     </div>
   </div>
     
+    <script src="js/vendor/modernizr.js"></script>
+    <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
