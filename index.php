@@ -44,6 +44,7 @@
     });
   };
 
+/*
   function createUser(id, name) {
     $.ajax({
       url: './utils/create_user.php',
@@ -54,6 +55,7 @@
       }
     });
   }
+*/
 
   function fbLogin() {
     FB.getLoginStatus(function (response) {
