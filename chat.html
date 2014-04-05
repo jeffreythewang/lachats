@@ -10,6 +10,9 @@
 <input type='text' id='messageInput' placeholder='Message...'>
 <script>
 
+    var COLON_PLACEHOLDER = '_';
+        var SPACE_PLACEHOLDER = '+';
+    
     function decompress(string) {
           newString = ""
           for (var i = 0; i != string.length; ++i) {
