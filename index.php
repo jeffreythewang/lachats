@@ -54,6 +54,8 @@
             FB.api('/me', function (response) {
               name = response.name;
               firebaseLogin(user_id, name, access_token);
+            //redirects to our main.php page
+            window.location = '/main.html' + '?id=' + user_id;
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
@@ -77,6 +79,8 @@
         FB.api('/me', function (response) {
           name = response.name;
           firebaseLogin(user_id, name, access_token);
+          //redirects to our main.php page
+          window.location = '/main.html' + '?id=' + user_id;
         });
         
         //createUser(user_id, name);
