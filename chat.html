@@ -61,7 +61,7 @@ text-align: left;'></div>
         var SPACE_PLACEHOLDER = '+';
         
         function compress(string) {
-          var newString = ""
+          newString = ""
           for (var i = 0; i != string.length; ++i) {
             var ch = string[i];
             if (ch == ' ') 
@@ -74,7 +74,7 @@ text-align: left;'></div>
           return newString;
         }
         function decompress(string) {
-          var newString = ""
+          newString = ""
           for (var i = 0; i != string.length; ++i) {
             var ch = string[i];
             if (ch == SPACE_PLACEHOLDER) 
@@ -86,14 +86,25 @@ text-align: left;'></div>
           }
           return newString;
         }
+    
+        var messagesRef = null;
 
+<<<<<<< HEAD
         function getUsername(userid) {
           var fbRef = new Firebase('https://la-chats.firebaseio.com/');
+=======
+        function getName(userid) {
+          var fbRef = new Firebase(fburl);
+>>>>>>> 443f4fd37fb3c584794654af4e4c6c6803916666
           var usernameRef = fbRef.child('users').child(userid).child('name');
           usernameRef.on('value', function(snapshot) {
             var name = snapshot.val();
             console.log(name);
             document.getElementById('name').innerHTML="Hi " + name + "!";
+              
+            // Get a reference to the root of the chat data.
+            var fbRef = new Firebase('https://la-chats.firebaseio.com/');
+            messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
 
             return name;
           });
@@ -108,28 +119,27 @@ text-align: left;'></div>
             var userID = urllist[1].split('?')[0];
             courseName = decompress(urllist[2]);
             courseNamePass = urllist[2];
-            username = getUsername(userID);
+            username = getName(userID);
             console.log(userID);
             console.log(courseName);
+            
             document.getElementById('topbar').innerHTML = courseName;
         });
     
     function mainRedirect() {
         var urllist = document.URL.split('=');
         var userID = urllist[1].split('?')[0];
-        username = getUsername(userID);
+        //username = getUsername(userID);
         window.location = '/main.html?id=' + username; 
         }
 
-    // Get a reference to the root of the chat data.
-    var fbRef = new Firebase('https://la-chats.firebaseio.com/');
-    var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
+
     
   // When the user presses enter on the message input, write the message to firebase.
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
 //      var name = $('#nameInput').val();
-      var name = 'Kenny Shi'; // for demo/design purposes
+      var name = username; // for demo/design purposes
       var text = $('#messageInput').val();
       messagesRef.push({name:name, text:text});
       $('#messageInput').val('');
