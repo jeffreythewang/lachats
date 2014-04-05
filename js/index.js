@@ -1,5 +1,3 @@
-var myUser;
-var fburl = 'https://la-chats.firebaseio.com/';
 
 window.fbAsyncInit = function() {
   FB.init({
@@ -88,7 +86,7 @@ function fbLogin() {
 }
 */
 
-function addClass(userid, course) {
+/*function addClass(userid, course) {
 	var fbRef = new Firebase(fburl);
 	var userRef = fbRef.child('users').child(userid).child('courses');
 	userRef.child(course).set("");
@@ -111,4 +109,4 @@ function getClasses(userid) {
     var classData = snapshot.val();
     classDict.push(classData.coursename);
   });
-}
+}*/

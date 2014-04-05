@@ -26,6 +26,7 @@
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
+    <script src="js/index.js"></script>
     <script>
       $(document).foundation();
     </script>
