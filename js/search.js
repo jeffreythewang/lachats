@@ -11228,11 +11228,12 @@ var classes = [
 $('#search .typeahead').typeahead({
   hint: true,
   highlight: true,
-  limit: 5,
-  minLength: 4
+  limit: 10,
+  minLength: 3
 },
 {
   name: 'classes',
   displayKey: 'value',
+  limit: 10,
   source: substringMatcher(classes)
 });

@@ -58,8 +58,6 @@ window.fbAsyncInit = function() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Good to see you, ' + response.name + '.');
-        //redirects to our main.php page
-        window.location = '/main.php';
     });
   }
 
@@ -112,6 +110,7 @@ function getUsername(userid) {
 function getClasses(userid) {
   var fbRef = new Firebase(fburl);
   var userRef = fbRef.child('users').child(userid).child('courses');
+<<<<<<< HEAD
   var classDict = [];
   listRef.on('child_added', function(snapshot) {
     var classData = snapshot.val();
@@ -128,3 +127,6 @@ function getClassmates(courseid) {
     classmateDict.push(classmateData.name);
   });
 }
+=======
+}
+>>>>>>> 7289f26d0437efa9ed20a72272824e769070e825

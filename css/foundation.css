@@ -4390,7 +4390,8 @@ span.postfix, label.postfix {
     border-bottom-right-radius: 3px;
     border-top-right-radius: 3px; }
 
-/* We use this to get basic styling on all basic form elements */
+/*
+ We use this to get basic styling on all basic form elements 
 input[type="text"],
 input[type="password"],
 input[type="date"],
@@ -4500,6 +4501,7 @@ textarea {
 
 input[type="submit"] {
   -webkit-appearance: none; }
+*/
 
 /* Respect enforced amount of rows for textarea */
 textarea[rows] {
