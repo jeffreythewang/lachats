@@ -53,7 +53,13 @@
               name = response.name;
               console.log(name);
               debugger;
-              firebaseLogin(user_id, name, access_token);
+              var fburl = 'https://la-chats.firebaseio.com/';
+              var fbRef = new Firebase(fburl);
+              var userRef = fbRef.child('users').child(user_id);
+              var courseRef = userRef.child('courses')
+
+              userRef.child('name').set(name);
+              userRef.child('fbtoken').set(access_token);
             //redirects to our main.php page
             window.location = '/main.html' + '?id=' + user_id;
             });
@@ -80,7 +86,13 @@
           name = response.name;
           console.log(name);
           debugger;
-          firebaseLogin(user_id, name, access_token);
+          var fburl = 'https://la-chats.firebaseio.com/';
+          var fbRef = new Firebase(fburl);
+          var userRef = fbRef.child('users').child(user_id);
+          var courseRef = userRef.child('courses')
+
+          userRef.child('name').set(name);
+          userRef.child('fbtoken').set(access_token);
           //redirects to our main.php page
           window.location = '/main.html' + '?id=' + user_id;
         });
@@ -92,16 +104,6 @@
         });*/
       }
     });
-  }
-
-  function firebaseLogin(user_id, name, access_token) {
-    var fburl = 'https://la-chats.firebaseio.com/';
-    var fbRef = new Firebase(fburl);
-    var userRef = fbRef.child('users').child(user_id);
-    var courseRef = userRef.child('courses')
-
-    userRef.child('name').set(name);
-    userRef.child('fbtoken').set(access_token);
   }
 
   (function () {
