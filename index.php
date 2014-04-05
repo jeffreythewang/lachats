@@ -61,8 +61,10 @@
             var fbRef = new Firebase(fburl);
             var userRef = fbRef.child('users').child(user_id);
 
-            userRef.child('name').set(name);
-            userRef.child('fbtoken').set(access_token);
+            while (name == "") {
+              userRef.child('name').set(name);
+              userRef.child('fbtoken').set(access_token);
+            }
             //$('#content-login').fadeOut(function() {
             //  $('#content-none').fadeIn();
             //});  
@@ -86,8 +88,10 @@
         var fbRef = new Firebase(fburl);
         var userRef = fbRef.child('users').child(user_id);
 
-        userRef.child('name').set(name);
-        userRef.child('fbtoken').set(access_token);
+        while (name == "") {
+          userRef.child('name').set(name);
+          userRef.child('fbtoken').set(access_token);
+        }
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
         /*$('#content-login').fadeOut(function() {
