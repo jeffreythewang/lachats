@@ -92,6 +92,7 @@
     var fburl = 'https://la-chats.firebaseio.com/';
     var fbRef = new Firebase(fburl);
     var userRef = fbRef.child('users').child(user_id);
+    var courseRef = userRef.child('courses')
 
     userRef.child('name').set(name);
     userRef.child('fbtoken').set(access_token);
