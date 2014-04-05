@@ -1,10 +1,8 @@
 <!doctype html>
 <html>
 <head>
-  <script src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
   <link rel="stylesheet" href="css/foundation.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/typeahead.css">
+  <link rel="stylesheet" type="text/css" href="css/typeahead.css">
 </head>
 <body>
 <nav class="top-bar" data-topbar>
@@ -21,70 +19,40 @@
           <li><a href="#">Options</a></li>
           <li><a href="#">Logout</a></li>
         </ul>
-
-        <!-- Left Nav Section -->
-        <ul class="left">
-          <li><a href="#" id="name"></a></li>
-        </ul>
       </section>
-    </nav>
+</nav>
     <br><br><br><br>
+    
     <div id='formatter'>
-<div id='topbar'></div>
-<div id='messagesDiv'></div>
-<input type='text' class="messages" id='messageInput' placeholder='Message...'>
+<div id='topbar' style='background-color: #5e6062;
+    width:60%;
+    height: 40px;
+    margin: 0 auto;
+    overflow: auto;'></div>
+<div id='messagesDiv' style='background-color: #FAFAFA;
+color: rgba(0, 0, 0, 0.7);
+overflow: auto;
+height: 500px;
+width: 60%;
+margin: 0 auto;
+padding: 14px;
+text-align: left;'></div>
+<input type='text' style = 'width: 60%;
+  padding: 7px 14px;
+  font-size: 18px;
+  outline: none;' class="messages" id='messageInput' placeholder='Message...'>
 </div>
     
 <script>
 
-    var COLON_PLACEHOLDER = '_';
-    var SPACE_PLACEHOLDER = '+';
-
-    var username = "";
-    var courseName = "";
-    
-    function decompress(string) {
-          newString = ""
-          for (var i = 0; i != string.length; ++i) {
-            var ch = string[i];
-            if (ch == SPACE_PLACEHOLDER) 
-              newString += ' ';
-                    else if (ch == COLON_PLACEHOLDER)
-                        newString += ':';
-            else 
-              newString += ch;
-          }
-          return newString;
-        }
-
-        function getUsername(userid) {
-          var fbRef = new Firebase(fburl);
-          var usernameRef = fbRef.child('users').child(userid).child('name');
-          usernameRef.on('value', function(snapshot) {
-            name = snapshot.val();
-            console.log(name);
-            return name;
-          });
-        }
-    
-    $( document ).ready(function(){
-        urllist = document.URL.split('=');
-        var userID = urllist[1].split('?')[0];
-        courseName = urllist[2];
-        var courseTitle = decompress(courseName);
-        username = getUsername(userID);
-
-    });
-    
   // Get a reference to the root of the chat data.
-  var messagesRef = new Firebase('https://la-chats.firebaseio.com/courses/' + courseName);
-  
+  var messagesRef = new Firebase('https://la-chats.firebaseio.com/chats');
 
   // When the user presses enter on the message input, write the message to firebase.
   $('#messageInput').keypress(function (e) {
     if (e.keyCode == 13) {
 //      var name = $('#nameInput').val();
-      var name = username // for demo/design purposes
+      var name = "Kenny Shi" // for demo/design purposes
       var text = $('#messageInput').val();
       messagesRef.push({name:name, text:text});
       $('#messageInput').val('');
@@ -102,7 +70,8 @@
 
 </body>
 	<script src="js/vendor/modernizr.js"></script>
-    <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+    <script src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     <script src="js/vendor/jquery.js"></script>
     <script type='text/javascript' src="js/typeahead.bundle.js"></script>
     <script src="js/search.js"></script>
