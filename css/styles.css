@@ -40,14 +40,17 @@ q:before, q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/*
 button, input { 
     text-align: center;
     outline: none; 
 }
+*/
 
 body {
   background-color: #446fe6;
