@@ -20,8 +20,8 @@
         <h1></h1>
       <div id="content-login">
         <div id="fb-root">
-          <h2>Form facebook groups with people in your classes!</h2><br><br>
-
+          <h2>Form facebook groups with people in your classes!</h2>
+            <br><br>
           <button id="login" class="medium secondary button" onclick="fbLogin();">Login with Facebook</button>
         </div>  
       </div>
