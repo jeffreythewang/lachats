@@ -1,16 +1,43 @@
 <!doctype html>
 <html>
 <head>
-    <link rel="stylesheet" href="css/foundation.css"/>
-    <link rel="stylesheet" href="css/typeahead.css"/>
+  <script src="https://cdn.firebase.com/js/client/1.0.11/firebase.js"></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
+  <link rel="stylesheet" type="text/css" href="/css/typeahead.css">
 </head>
 <body>
+<div id='messagesDiv'></div>
+<input type='text' id='nameInput' placeholder='Name'>
+<input type='text' id='messageInput' placeholder='Message...'>
+<script>
+
+  // Get a reference to the root of the chat data.
+  var messagesRef = new Firebase('https://la-chats.firebaseio.com/chats');
+
+  // When the user presses enter on the message input, write the message to firebase.
+  $('#messageInput').keypress(function (e) {
+    if (e.keyCode == 13) {
+      var name = $('#nameInput').val();
+      var text = $('#messageInput').val();
+      messagesRef.push({name:name, text:text});
+      $('#messageInput').val('');
+    }
+  });
+
+  // Add a callback that is triggered for each chat message.
+  messagesRef.limit(10).on('child_added', function (snapshot) {
+    var message = snapshot.val();
+    $('<div/>').text(message.text).prepend($('<em/>')
+      .text(message.name+': ')).appendTo($('#messagesDiv'));
+    $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+  });
+</script>
 
 </body>
 	<script src="js/vendor/modernizr.js"></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     <script src="js/vendor/jquery.js"></script>
     <script type='text/javascript' src="js/typeahead.bundle.js"></script>
     <script src="js/search.js"></script>
     <script src="js/index.js"></script>
+</html>

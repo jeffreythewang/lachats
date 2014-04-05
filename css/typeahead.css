@@ -17,6 +17,17 @@ p {
     color: #000;
 }
 
+#messagesDiv {
+background-color: white;
+overflow: auto;
+height: 230px;
+width: 100%;
+padding: 10px;
+border: 8px solid #424547;
+margin-bottom: 5px;
+text-align: left;
+}
+
 .typeahead,
 .tt-query,
 .tt-hint {
