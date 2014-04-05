@@ -117,8 +117,8 @@
           var groupRef = fbRef.child('groups').child(course).child('chats');
 
           userRef.on('child_added', function(snapshot) {
-            var courselist = snapshot.val();
-            displayCourseList(courseList.name);
+            var courses = snapshot.val();
+            displayCourseList(courses.name);
           });
         }
 
