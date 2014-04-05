@@ -76,17 +76,35 @@ text-align: left;'></div>
           }
           return newString;
         }
+
+        var messagesRef;
+
+        function getUsername(userid) {
+          var fbRef = new Firebase(fburl);
+          var usernameRef = fbRef.child('users').child(userid).child('name');
+          usernameRef.on('value', function(snapshot) {
+            name = snapshot.val();
+            console.log(name);
+            document.getElementById('name').innerHTML="Hi " + name + "!";
+
+            // Get a reference to the root of the chat data.
+            var fbRef = new Firebase('https://la-chats.firebaseio.com/');
+            messagesRef = fbRef.child('courses').child(courseName).child('chats');
+            return name;
+          });
+        }
+
+        var username = "";
+        var courseName = "";
     
     $( document ).ready(function(){
             var urllist = document.URL.split('=');
             var userID = urllist[1].split('?')[0];
-            var courseName = decompress(urllist[2]);
+            courseName = urllist[2];
+            username = getUsername(userID);
             console.log(userID);
             console.log(courseName);
         });
-    
-  // Get a reference to the root of the chat data.
-  var messagesRef = new Firebase('https://la-chats.firebaseio.com/chats');
 
   // When the user presses enter on the message input, write the message to firebase.
   $('#messageInput').keypress(function (e) {
