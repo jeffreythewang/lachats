@@ -8,12 +8,12 @@
 </head>
 <body>
     <div id="searching">
-      <input class="typeahead" type="text" placeholder="Classes at UCLA">
+      <input type="text" id="search" data-provide="typeahead" data-items="4" placeholder="Classes at UCLA">
     </div>
 </body>
 
 <script>  
  var subjects = ['PHP', 'MySQL', 'SQL', 'PostgreSQL', 'HTML', 'CSS', 'HTML5', 'CSS3', 'JSON'];   
-$('#searching').typeahead({source: subjects})  
+$('#search').typeahead({source: subjects})  
 </script>  
 </html>
