@@ -47,6 +47,42 @@ text-align: left;'></div>
     
 <script>
 
+        var COLON_PLACEHOLDER = '_';
+        var SPACE_PLACEHOLDER = '+';
+        
+        function compress(string) {
+          newString = ""
+          for (var i = 0; i != string.length; ++i) {
+            var ch = string[i];
+            if (ch == ' ') 
+              newString += SPACE_PLACEHOLDER;
+            else if (ch == ':')
+                        newString += COLON_PLACEHOLDER;
+                    else
+              newString += ch;
+          } 
+          return newString;
+        }
+        function decompress(string) {
+          newString = ""
+          for (var i = 0; i != string.length; ++i) {
+            var ch = string[i];
+            if (ch == SPACE_PLACEHOLDER) 
+              newString += ' ';
+                    else if (ch == COLON_PLACEHOLDER)
+                        newString += ':';
+            else 
+              newString += ch;
+          }
+          return newString;
+        }
+    
+    $( document ).ready(function(){
+            var urllist = document.URL.split('=');
+            var userID = urllist[1].split('?')[0];
+            var courseName = decompress(urllist[2]);
+        });
+    
   // Get a reference to the root of the chat data.
   var messagesRef = new Firebase('https://la-chats.firebaseio.com/chats');
 
