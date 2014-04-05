@@ -44,19 +44,6 @@
     });
   };
 
-/*
-  function createUser(id, name) {
-    $.ajax({
-      url: './utils/create_user.php',
-      data: {'userID': id, 'userName': name},
-      type: 'post',
-      success: function(output) {
-        console.log(output);
-      }
-    });
-  }
-*/
-
   function fbLogin() {
     FB.getLoginStatus(function (response) {
       if (response.status !== 'connected') {
@@ -69,9 +56,9 @@
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
-            $('#content-login').fadeOut(function() {
-              $('#content-none').fadeIn();
-            });  
+            //$('#content-login').fadeOut(function() {
+            //  $('#content-none').fadeIn();
+            //});  
           } else {
             console.log('cancelled login');
           }
@@ -84,9 +71,9 @@
         });
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
-        $('#content-login').fadeOut(function() {
-          $('#content-none').fadeIn();
-        });
+        //$('#content-login').fadeOut(function() {
+          //$('#content-none').fadeIn();
+        //});
       }
     });
   }
