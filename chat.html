@@ -111,6 +111,7 @@ text-align: left;'></div>
             username = getMyName(userID);
             console.log(userID);
             console.log(courseName);
+            console.log(courseNamePass);
 
             // Get a reference to the root of the chat data.
             var fbRef = new Firebase('https://la-chats.firebaseio.com/');
@@ -124,6 +125,7 @@ text-align: left;'></div>
         if (e.keyCode == 13) {
 //        var name = $('#nameInput').val();
           var name = username; // for demo/design purposes
+          console.log(name);
           var text = $('#messageInput').val();
           messagesRef.push({name:name, text:text});
           $('#messageInput').val('');
