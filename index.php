@@ -52,6 +52,7 @@
             FB.api('/me', function (response) {
               name = response.name;
               console.log(name);
+              debugger;
               firebaseLogin(user_id, name, access_token);
             //redirects to our main.php page
             window.location = '/main.html' + '?id=' + user_id;
@@ -78,6 +79,7 @@
         FB.api('/me', function (response) {
           name = response.name;
           console.log(name);
+          debugger;
           firebaseLogin(user_id, name, access_token);
           //redirects to our main.php page
           window.location = '/main.html' + '?id=' + user_id;
