@@ -67,7 +67,7 @@
             FB.api('/me', function (response) {
               name = response.first_name;
             });
-            createUser(user_id, name);
+            // createUser(user_id, name);
             $('[name=guid]').val(user_id);
             $('#content-login').fadeOut(function() {
               $('#content-none').fadeIn();
@@ -82,7 +82,7 @@
         FB.api('/me', function (response) {
           name = response.first_name;
         });
-        createUser(user_id, name);
+        //createUser(user_id, name);
         $('[name=guid]').val(user_id);
         $('#content-login').fadeOut(function() {
           $('#content-none').fadeIn();
