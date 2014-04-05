@@ -30,7 +30,7 @@
 <!--    <h1>What classes are you taking?</h1>-->
     <div class="row">
             <div id="search">
-                <input class="typeahead" id="classInput" type="text" placeholder="What classes are you taking?">
+                <input class="typeahead" id="classInput" type="text" placeholder="Pick a class to chat with classmates!">
 <!--                <button id="submit-course" class="medium secondary button" onclick="submitCourse();">+</button>-->
             </div>
     </div>
@@ -120,16 +120,16 @@
           var groupRef = fbRef.child('courses').child(ccourse);
           groupRef.child('name').set(course);
 
-          userRef.on('child_added', function(snapshot) {
-            var courses = snapshot.val();
-            displayCourseList(courses.name);
-          });
+//          userRef.on('child_added', function(snapshot) {
+//            var courses = snapshot.val();
+//            displayCourseList(courses.name);
+//          });
         }
 
-        function displayCourseList(name) {
-          $('<div/>').prepend($('<em/>').text(name)).appendTo($('#classDiv'));
-          $('#classDiv')[0].scrollTop = $('#classDiv')[0].scrollHeight;
-        };
+//        function displayCourseList(name) {
+//          $('<div/>').prepend($('<em/>').text(name)).appendTo($('#classDiv'));
+//          $('#classDiv')[0].scrollTop = $('#classDiv')[0].scrollHeight;
+//        };
           
     </script>
 </html>
