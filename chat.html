@@ -88,9 +88,13 @@ text-align: left;'></div>
           console.log('Print statment here');
           var fbRef = new Firebase('https://la-chats.firebaseio.com/');
           var usernameRef = fbRef.child('users').child(userid).child('name');
+          var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
           usernameRef.on('value', function(snapshot) {
             var name = snapshot.val();
             console.log(name);
+            var text = $('#messageInput').val();
+            messagesRef.push({name:name, text:text});
+            $('#messageInput').val('');
 
             return name;
           });
@@ -105,7 +109,6 @@ text-align: left;'></div>
             var userID = urllist[1].split('?')[0];
             courseName = decompress(urllist[2]);
             courseNamePass = urllist[2];
-            username = getMyName(userID);
             console.log(userID);
             console.log(courseName);
             console.log(courseNamePass);
@@ -131,14 +134,8 @@ text-align: left;'></div>
     // When the user presses enter on the message input, write the message to firebase.
       $('#messageInput').keypress(function (e) {
         if (e.keyCode == 13) {
-          var fbRef = new Firebase('https://la-chats.firebaseio.com/');
-          var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
+          getMyName(userID);
 //        var name = $('#nameInput').val();
-          var myname = username; // for demo/design purposes
-          console.log(name);
-          var text = $('#messageInput').val();
-          messagesRef.push({name:myname, text:text});
-          $('#messageInput').val('');
         }
       });
 
