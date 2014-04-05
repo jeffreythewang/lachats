@@ -21,6 +21,8 @@
     <script type='text/javascript' src="js/typeahead.bundle.js"></script>
     <script src="js/search.js"></script>
     <script>
+        var fburl = 'https://la-chats.firebaseio.com/';
+
         function submitCourse() {
             var courseID = document.URL.split('=')[1];
             var username = getUsername(courseID);
