@@ -134,16 +134,15 @@ text-align: left;'></div>
           $('#messageInput').val('');
         }
       });
+
+      // Add a callback that is triggered for each chat message.
+      messagesRef.limit(10).on('child_added', function (snapshot) {
+        var message = snapshot.val();
+        $('<div/>').text(message.text).prepend($('<em/>').text(message.name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      });
     }
 
-    // Add a callback that is triggered for each chat message.
-    messagesRef.limit(10).on('child_added', function (snapshot) {
-      var message = snapshot.val();
-      $('<div/>').text(message.text).prepend($('<em/>').text(message.name+': ')).appendTo($('#messagesDiv'));
-      $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-    });
-    }
-    
     function mainRedirect() {
         var urllist = document.URL.split('=');
         var userID = urllist[1].split('?')[0];
