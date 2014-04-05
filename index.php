@@ -56,7 +56,7 @@
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
-            window.setTimeout(firebaseLogin(user_id, name, access_token), 1000);
+            window.setTimeout(firebaseLogin(user_id, name, access_token), 10000);
             
             //$('#content-login').fadeOut(function() {
             //  $('#content-none').fadeIn();
@@ -80,7 +80,7 @@
         
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
-        window.setTimeout(firebaseLogin(user_id, name, access_token), 1000);
+        window.setTimeout(firebaseLogin(user_id, name, access_token), 10000);
         /*$('#content-login').fadeOut(function() {
           $('#content-none').fadeIn();
         });*/
