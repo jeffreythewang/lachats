@@ -51,6 +51,7 @@
             user_id = response.authResponse.userID;
             FB.api('/me', function (response) {
               name = response.name;
+              console.log(name);
               firebaseLogin(user_id, name, access_token);
             //redirects to our main.php page
             window.location = '/main.html' + '?id=' + user_id;
@@ -76,6 +77,7 @@
         user_id = response.authResponse.userID;
         FB.api('/me', function (response) {
           name = response.name;
+          console.log(name);
           firebaseLogin(user_id, name, access_token);
           //redirects to our main.php page
           window.location = '/main.html' + '?id=' + user_id;
