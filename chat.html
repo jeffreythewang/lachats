@@ -86,6 +86,8 @@ text-align: left;'></div>
           }
           return newString;
         }
+    
+        var messagesRef = null;
 
         function getUsername(userid) {
           var fbRef = new Firebase(fburl);
@@ -98,7 +100,7 @@ text-align: left;'></div>
               
             // Get a reference to the root of the chat data.
             var fbRef = new Firebase('https://la-chats.firebaseio.com/');
-            var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
+            messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
 
             return name;
           });
