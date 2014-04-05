@@ -89,7 +89,7 @@ text-align: left;'></div>
 
         function getUsername(userid) {
           console.log('Print statment here');
-          var fbRef = new Firebase(fburl);
+          var fbRef = new Firebase('https://la-chats.firebaseio.com/');
           var usernameRef = fbRef.child('users').child(userid).child('name');
           usernameRef.on('value', function(snapshot) {
             var name = snapshot.val();
