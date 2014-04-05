@@ -10,9 +10,26 @@
 <input type='text' id='messageInput' placeholder='Message...'>
 <script>
 
+    function decompress(string) {
+          newString = ""
+          for (var i = 0; i != string.length; ++i) {
+            var ch = string[i];
+            if (ch == SPACE_PLACEHOLDER) 
+              newString += ' ';
+                    else if (ch == COLON_PLACEHOLDER)
+                        newString += ':';
+            else 
+              newString += ch;
+          }
+          return newString;
+        }
+    
     $( document ).ready(function(){
-        urlstr = document.URL.split('=');
-        console.log(urlstr);
+        urllist = document.URL.split('=');
+        var userID = urllist.split('?')[0];
+        var courseName = decompress(urllist[2]);
+        console.log("userID is: ", userID)
+        console.log("courseName is: ", courseName)
     });
     
   // Get a reference to the root of the chat data.
