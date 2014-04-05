@@ -120,9 +120,19 @@ text-align: left;'></div>
       var fbRef = new Firebase('https://la-chats.firebaseio.com/');
       var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
 
-      // When the user presses enter on the message input, write the message to firebase.
+      // Add a callback that is triggered for each chat message.
+      messagesRef.limit(10).on('child_added', function (snapshot) {
+        var message = snapshot.val();
+        $('<div/>').text(message.text).prepend($('<em/>').text(message.name+': ')).appendTo($('#messagesDiv'));
+        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+      });
+    }
+
+    // When the user presses enter on the message input, write the message to firebase.
       $('#messageInput').keypress(function (e) {
         if (e.keyCode == 13) {
+          var fbRef = new Firebase('https://la-chats.firebaseio.com/');
+          var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
 //        var name = $('#nameInput').val();
           var name = username; // for demo/design purposes
           console.log(name);
@@ -131,14 +141,6 @@ text-align: left;'></div>
           $('#messageInput').val('');
         }
       });
-
-      // Add a callback that is triggered for each chat message.
-      messagesRef.limit(10).on('child_added', function (snapshot) {
-        var message = snapshot.val();
-        $('<div/>').text(message.text).prepend($('<em/>').text(message.name+': ')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      });
-    }
 
     function mainRedirect() {
         var urllist = document.URL.split('=');
