@@ -56,15 +56,8 @@
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
-
-            var fburl = 'https://la-chats.firebaseio.com/';
-            var fbRef = new Firebase(fburl);
-            var userRef = fbRef.child('users').child(user_id);
-
-            while (name == "") {
-              userRef.child('name').set(name);
-              userRef.child('fbtoken').set(access_token);
-            }
+            window.setTimeout(firebaseLogin(user_id, name, access_token), 1000);
+            
             //$('#content-login').fadeOut(function() {
             //  $('#content-none').fadeIn();
             //});  
@@ -84,21 +77,24 @@
         FB.api('/me', function (response) {
           name = response.name;
         });
-        var fburl = 'https://la-chats.firebaseio.com/';
-        var fbRef = new Firebase(fburl);
-        var userRef = fbRef.child('users').child(user_id);
-
-        while (name == "") {
-          userRef.child('name').set(name);
-          userRef.child('fbtoken').set(access_token);
-        }
+        
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
+        window.setTimeout(firebaseLogin(user_id, name, access_token), 1000);
         /*$('#content-login').fadeOut(function() {
           $('#content-none').fadeIn();
         });*/
       }
     });
+  }
+
+  function firebaseLogin(user_id, name, access_token) {
+    var fburl = 'https://la-chats.firebaseio.com/';
+    var fbRef = new Firebase(fburl);
+    var userRef = fbRef.child('users').child(user_id);
+
+    userRef.child('name').set(name);
+    userRef.child('fbtoken').set(access_token);
   }
 
   (function () {
