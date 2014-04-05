@@ -9,8 +9,6 @@
       
     <script src="js/vendor/modernizr.js"></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
-    <script type='text/javascript' src='https://cdn.firebase.com/js/simple-login/1.3.2/firebase-simple-login.js'></script>
-    <script type='text/javascript' src='/js/index.js'></script>
       
   </head>
   <body>
@@ -56,6 +54,12 @@
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
+            var fburl = 'https://la-chats.firebaseio.com/';
+            var fbRef = new Firebase(fburl);
+            var userRef = chatRef.child('users').child(user_id);
+
+            userRef.child('name').set(name);
+            userRef.child('fbtoken').set(access_token);
             //$('#content-login').fadeOut(function() {
             //  $('#content-none').fadeIn();
             //});  
@@ -69,6 +73,12 @@
         FB.api('/me', function (response) {
           name = response.first_name;
         });
+        var fburl = 'https://la-chats.firebaseio.com/';
+        var fbRef = new Firebase(fburl);
+        var userRef = chatRef.child('users').child(user_id);
+
+        userRef.child('name').set(name);
+        userRef.child('fbtoken').set(access_token);
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
         //$('#content-login').fadeOut(function() {
