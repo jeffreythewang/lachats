@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="stylesheet" href="css/styles.css">
   </head>
-  <body>
+  <body style="background-image:url(http://i.imgur.com/bNYFWzr.jpg)">
       <div id="wrapper">
     <div id="content">  
       <img src="img/LAChatsLogo.png">
