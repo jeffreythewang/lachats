@@ -100,7 +100,6 @@ function getUsername(userid) {
   var usernameRef = fbRef.child('users').child(userid).child('name');
   usernameRef.on('value', function(snapshot) {
     name = snapshot.val();
-    return name;
   });
 }
 
@@ -111,15 +110,5 @@ function getClasses(userid) {
   listRef.on('child_added', function(snapshot) {
     var classData = snapshot.val();
     classDict.push(classData.coursename);
-  });
-}
-
-function getClassmates(courseid) {
-  var fbRef = new Firebase(fburl);
-  var courseRef = fbRef.child('courses').child(courseid);
-  var classmateDict = [];
-  courseRef.on('child_added', function(snapshot) {
-    var classmateData = snapshot.val();
-    classmateDict.push(classmateData.name);
   });
 }
