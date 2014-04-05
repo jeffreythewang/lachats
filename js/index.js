@@ -91,7 +91,8 @@ function fbLogin() {
 function addClass(userid, course) {
 	var fbRef = new Firebase(fburl);
 	var userRef = fbRef.child('users').child(userid).child('courses');
-	userRef.child(course).set('');
+	userRef.child(course).set("");
+  var groupRef = fbRef.child('groups').child(course).child('chats');
 }
 
 function getUsername(userid) {
