@@ -25,8 +25,8 @@
 
         function submitCourse() {
             var courseID = document.URL.split('=')[1];
+            console.log(courseID);
             var username = getUsername(courseID);
-            console.log(username);
         }
 
         function getUsername(userid) {
@@ -34,6 +34,7 @@
           var usernameRef = fbRef.child('users').child(userid).child('name');
           usernameRef.on('value', function(snapshot) {
             name = snapshot.val();
+            console.log(name);
             return name;
           });
         }
