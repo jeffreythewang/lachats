@@ -21,8 +21,8 @@
       </div>
     </div>
   </div>
-    
-    <script src="js/vendor/modernizr.js"></script>
+  </body>
+<script src="js/vendor/modernizr.js"></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js'></script>
     <script src="js/vendor/jquery.js"></script>
@@ -31,7 +31,6 @@
     <script>
       $(document).foundation();
     </script>
-  </body>
 <script>
   window.fbAsyncInit = function() {
     FB.init({
