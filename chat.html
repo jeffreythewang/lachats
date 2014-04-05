@@ -77,8 +77,6 @@ text-align: left;'></div>
           return newString;
         }
 
-        var messagesRef;
-
         function getUsername(userid) {
           var fbRef = new Firebase(fburl);
           var usernameRef = fbRef.child('users').child(userid).child('name');
@@ -87,9 +85,6 @@ text-align: left;'></div>
             console.log(name);
             document.getElementById('name').innerHTML="Hi " + name + "!";
 
-            // Get a reference to the root of the chat data.
-            var fbRef = new Firebase('https://la-chats.firebaseio.com/');
-            messagesRef = fbRef.child('courses').child(courseName).child('chats');
             return name;
           });
         }
@@ -106,6 +101,10 @@ text-align: left;'></div>
             console.log(courseName);
             document.getElementById('topbar').innerHTML = courseName;
         });
+
+    // Get a reference to the root of the chat data.
+    var fbRef = new Firebase('https://la-chats.firebaseio.com/');
+    var messagesRef = fbRef.child('courses').child(courseName).child('chats');
 
   // When the user presses enter on the message input, write the message to firebase.
   $('#messageInput').keypress(function (e) {
