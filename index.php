@@ -24,6 +24,7 @@
           } else if (user) {
             // user authenticated with Firebase
             console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+            window.location = 'https://www.firebase.com/docs/security/simple-login-overview.html';
           } else {
             // user is logged out
           }
