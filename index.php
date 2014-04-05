@@ -19,9 +19,9 @@
       <div id="content-login">
         <div id="fb-root">
           <h2>Form facebook groups with people in your classes!</h2>
-            <br><br>
-        </div>  
-         <button id="login" class="medium secondary button" onclick="fbLogin();">Login with Facebook</button>
+          <br><br>
+          <button id="login" class="medium secondary button" onclick="fbLogin();">Login with Facebook</button>
+        </div> 
       </div>
     </div>
   </div>
@@ -44,6 +44,7 @@
 
   function fbLogin() {
     FB.getLoginStatus(function (response) {
+        console.log('Attempting to login');
       if (response.status !== 'connected') {
         FB.login(function (response) {
           if (response.authResponse) {
@@ -54,6 +55,7 @@
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
+
             var fburl = 'https://la-chats.firebaseio.com/';
             var fbRef = new Firebase(fburl);
             var userRef = chatRef.child('users').child(user_id);
@@ -63,6 +65,11 @@
             //$('#content-login').fadeOut(function() {
             //  $('#content-none').fadeIn();
             //});  
+
+            /*$('#content-login').fadeOut(function() {
+              $('#content-none').fadeIn();
+            });*/
+
           } else {
             console.log('cancelled login');
           }
@@ -81,9 +88,9 @@
         userRef.child('fbtoken').set(access_token);
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
-        //$('#content-login').fadeOut(function() {
-          //$('#content-none').fadeIn();
-        //});
+        /*$('#content-login').fadeOut(function() {
+          $('#content-none').fadeIn();
+        });*/
       }
     });
   }
