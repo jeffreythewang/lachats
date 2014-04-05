@@ -88,11 +88,11 @@ text-align: left;'></div>
           console.log('Print statment here');
           var fbRef = new Firebase('https://la-chats.firebaseio.com/');
           var usernameRef = fbRef.child('users').child(userid).child('name');
-          var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
           usernameRef.on('value', function(snapshot) {
             var name = snapshot.val();
             console.log(name);
             var text = $('#messageInput').val();
+            var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
             messagesRef.push({name:name, text:text});
             $('#messageInput').val('');
 
@@ -101,7 +101,7 @@ text-align: left;'></div>
         }
 
         var userID = "";
-        //var courseNamePass = "";
+        var courseNamePass = "";
     
         $( document ).ready(function(){
             var urllist = document.URL.split('=');
