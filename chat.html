@@ -10,6 +10,12 @@
 <input type='text' id='messageInput' placeholder='Message...'>
 <script>
 
+    $( document ).ready(function(){
+//        alert("ready")
+        url = document.URL;
+        console.log(url);
+    });
+    
   // Get a reference to the root of the chat data.
   var messagesRef = new Firebase('https://la-chats.firebaseio.com/chats');
 
