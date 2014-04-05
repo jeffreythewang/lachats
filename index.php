@@ -48,9 +48,9 @@
       if (response.status !== 'connected') {
         FB.login(function (response) {
           if (response.authResponse) {
+            console.log('Connnected');
             access_token = response.authResponse.accessToken;
             user_id = response.authResponse.userID;
-            name = response.name;
             FB.api('/me', function (response) {
               name = response.name;
             });
@@ -76,10 +76,11 @@
           }
         })
       } else {
+        console.log('Already connnected');
         access_token = response.authResponse.accessToken;
         user_id = response.authResponse.userID;
         FB.api('/me', function (response) {
-          name = response.first_name;
+          name = response.name;
         });
         var fburl = 'https://la-chats.firebaseio.com/';
         var fbRef = new Firebase(fburl);
