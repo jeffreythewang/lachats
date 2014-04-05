@@ -134,10 +134,10 @@ text-align: left;'></div>
           var fbRef = new Firebase('https://la-chats.firebaseio.com/');
           var messagesRef = fbRef.child('courses').child(courseNamePass).child('chats');
 //        var name = $('#nameInput').val();
-          var name = username; // for demo/design purposes
+          var myname = username; // for demo/design purposes
           console.log(name);
           var text = $('#messageInput').val();
-          messagesRef.push({name:name, text:text});
+          messagesRef.push({name:myname, text:text});
           $('#messageInput').val('');
         }
       });
