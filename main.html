@@ -22,7 +22,7 @@
 
         <!-- Left Nav Section -->
         <ul class="left">
-          <li><a href="#">Hi!</a></li>
+          <li><a href="#" id="name"></a></li>
         </ul>
       </section>
     </nav>
@@ -41,6 +41,8 @@
     <script type='text/javascript' src="js/typeahead.bundle.js"></script>
     <script src="js/search.js"></script>
     <script>
+        
+        
         var fburl = 'https://la-chats.firebaseio.com/';
 
         function submitCourse() {
@@ -55,8 +57,11 @@
           usernameRef.on('value', function(snapshot) {
             name = snapshot.val();
             console.log(name);
+            document.getElementById('name').innerHTML="Hi " + name + "!";
             return name;
           });
         }
+        
+        
     </script>
 </html>
