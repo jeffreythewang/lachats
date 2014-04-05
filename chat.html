@@ -95,10 +95,6 @@ text-align: left;'></div>
         var username = "";
         var courseName = "";
     
-      function mainRedirect() {
-      window.location = '/main.html?id=' + username; 
-        }
-    
     $( document ).ready(function(){
             var urllist = document.URL.split('=');
             var userID = urllist[1].split('?')[0];
@@ -108,6 +104,10 @@ text-align: left;'></div>
             console.log(courseName);
             document.getElementById('topbar').innerHTML = courseName;
         });
+    
+    function mainRedirect() {
+        window.location = '/main.html?id=' + username; 
+        }
 
     // Get a reference to the root of the chat data.
     var fbRef = new Firebase('https://la-chats.firebaseio.com/');
