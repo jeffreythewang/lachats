@@ -10,30 +10,7 @@
     <script src="js/vendor/modernizr.js"></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
     <script type='text/javascript' src='https://cdn.firebase.com/js/simple-login/1.3.2/firebase-simple-login.js'></script>
-    <script>
-        var fburl = 'https://la-chats.firebaseio.com/';
-        var chatRef = new Firebase(fburl);
-        var auth = new FirebaseSimpleLogin(chatRef, function(error, user) {
-          if (error) {
-            // an error occurred while attempting login
-            switch(error.code) {
-              case 'INVALID_EMAIL':
-              case 'INVALID_PASSWORD':
-              default:
-            }
-          } else if (user) {
-            // user authenticated with Firebase
-            console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
-            window.location = 'https://www.firebase.com/docs/security/simple-login-overview.html';
-          } else {
-            // user is logged out
-          }
-        });    
-    
-    function fbLogin(){
-        auth.login('facebook');
-    }
-    </script>
+    <script type='text/javascript' src='/js/index.js'></script>
       
   </head>
   <body>
