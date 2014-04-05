@@ -53,10 +53,10 @@
             user_id = response.authResponse.userID;
             FB.api('/me', function (response) {
               name = response.name;
+              firebaseLogin(user_id, name, access_token);
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
-            window.setTimeout(firebaseLogin(user_id, name, access_token), 10000);
             
             //$('#content-login').fadeOut(function() {
             //  $('#content-none').fadeIn();
@@ -76,11 +76,11 @@
         user_id = response.authResponse.userID;
         FB.api('/me', function (response) {
           name = response.name;
+          firebaseLogin(user_id, name, access_token);
         });
         
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
-        window.setTimeout(firebaseLogin(user_id, name, access_token), 10000);
         /*$('#content-login').fadeOut(function() {
           $('#content-none').fadeIn();
         });*/
