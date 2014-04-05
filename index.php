@@ -56,9 +56,9 @@
             });
             // createUser(user_id, name);
             $('[name=guid]').val(user_id);
-            //$('#content-login').fadeOut(function() {
-            //  $('#content-none').fadeIn();
-            //});  
+            $('#content-login').fadeOut(function() {
+              $('#content-none').fadeIn();
+            });  
           } else {
             console.log('cancelled login');
           }
@@ -71,9 +71,9 @@
         });
         //createUser(user_id, name);
         $('[name=guid]').val(user_id);
-        //$('#content-login').fadeOut(function() {
-          //$('#content-none').fadeIn();
-        //});
+        $('#content-login').fadeOut(function() {
+          $('#content-none').fadeIn();
+        });
       }
     });
   }
